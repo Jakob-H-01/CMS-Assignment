@@ -88,12 +88,14 @@ h1, h2, h3, h4, h5, h6, p {
     --clr-white-200: #F7F7F7;
     --clr-dark: #0E0E0E;
     --clr-gray-100: #EBEBEB;
+    --clr-gray-200: #606966;
 
     --clr-background: var(--clr-white-100);
     --clr-body: var(--clr-primary-200);
     --clr-heading: var(--clr-primary-100);
     --clr-logo: var(--clr-primary-100);
     --clr-border: var(--clr-gray-100);
+    --clr-border-light: var(--clr-gray-200);
 
     /* Typography */
     --ff-primary: 'Poppins', sans-serif;
@@ -237,6 +239,14 @@ h1, h2, h3, h4, h5, h6, p {
 
 .text-xs { font-size: var(--fs-xs); }
 .text-sm { font-size: var(--fs-sm); }
+
+.icon-border {
+    &:first-of-type {
+        border-left: 1px solid var(--clr-border-light);
+    }
+
+    border-right: 1px solid var(--clr-border-light);
+}
 
 /* General styling */
 body {
