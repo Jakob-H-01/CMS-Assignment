@@ -4,35 +4,37 @@
     var rootContent = Umbraco.ContentAtRoot();
     var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
 
-    var contactAddress = siteSettings?.ContactAddress ?? "No Address";
+    var contactAddress = siteSettings?.ContactAddress ?? "No address";
 }
 
-<div class="flex align-center space-between bgc-primary clr-light">
-    <p>@contactAddress</p>
+<div class="full-width bgc-primary clr-light">
+    <div class="flex align-center space-between">
+        <p>@contactAddress</p>
 
-    @if (siteSettings?.PlatformList != null)
-    {
-        <ul class="flex align-center">
-            @foreach (var item in siteSettings.PlatformList)
-            {
-                if (item.Content is SocialMediaItem mediaItem)
+        @if (siteSettings?.PlatformList != null)
+        {
+            <ul class="flex align-center">
+                @foreach (var item in siteSettings.PlatformList)
                 {
-                    switch (mediaItem.PlatformName!.ToLower())
+                    if (item.Content is SocialMediaItem mediaItem)
                     {
-                        case "facebook":
-                            <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank"><i class="fa-brands fa-facebook-f clr-light"></i></a></li>
-                            break;
+                        switch (mediaItem.PlatformName!.ToLower())
+                        {
+                            case "facebook":
+                                <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank"><i class="fa-brands fa-facebook-f clr-light"></i></a></li>
+                                break;
 
-                        case "x":
-                            <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank"><i class="fa-brands fa-twitter clr-light"></i></a></li>
-                            break;
+                            case "x":
+                                <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank"><i class="fa-brands fa-twitter clr-light"></i></a></li>
+                                break;
 
-                        case "linkedin":
-                            <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank"><i class="fa-brands fa-linkedin-in clr-light"></i></a></li>
-                            break;
+                            case "linkedin":
+                                <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank"><i class="fa-brands fa-linkedin-in clr-light"></i></a></li>
+                                break;
+                        }
                     }
                 }
-            }
-        </ul> 
-    }
+            </ul> 
+        }
+    </div>
 </div>
