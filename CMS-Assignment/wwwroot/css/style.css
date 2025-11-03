@@ -210,6 +210,10 @@ h1, h2, h3, h4, h5, h6, p {
     justify-content: center;
 }
 
+.justify-items-center {
+    justify-items: center;
+}
+
 .justify-start {
     justify-items: flex-start;
 }
@@ -227,6 +231,7 @@ h1, h2, h3, h4, h5, h6, p {
     justify-content: space-between;
 }
 
+.mi-auto { margin-inline: auto; }
 .ml-auto { margin-left: auto; }
 .mr-auto { margin-right: auto; }
 
@@ -360,8 +365,8 @@ body {
 
 .item-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.875rem;
 }
 
 /* Components */
@@ -402,17 +407,23 @@ body {
 
 .card {
     max-width: 470px;
+    text-align: left;
     background-color: var(--clr-white-100);
     padding-bottom: 1.875rem;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
     
-    > :not(:first-child) {
+    > :not(:first-child, img) {
         padding-inline: 1.875rem;
         margin-top: 1.875rem;
     }
 
     > :first-child {
         padding: 1.875rem;
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
     }
 }
 
