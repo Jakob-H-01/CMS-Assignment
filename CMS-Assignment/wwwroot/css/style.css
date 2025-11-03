@@ -46,7 +46,7 @@ svg {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    line-height: 1.1;
+    line-height: 1.15;
     text-wrap: balance;
 }
 
@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6, p {
     --fs-h4: clamp(1.5rem, 0.8vw + 1.2rem, 2rem);
     --fs-h3: clamp(1.75rem, 1vw + 1.25rem, 2.25rem);
     --fs-h2: clamp(2rem, 1.2vw + 1.5rem, 2.5rem);
-    --fs-h1: clamp(2.5rem, 2vw + 1.5rem, 3.5rem);
+    --fs-h1: clamp(2.5rem, 2vw + 1.5rem, 4.375rem);
 
     /* Spacing */
     --space-xs: 0.5rem;
@@ -127,6 +127,9 @@ h1, h2, h3, h4, h5, h6, p {
     /* Breakpoints */
     --tablet: 768px;
     --desktop: 1200px;
+
+    /* Layout */
+    --content-max-width: 1160px;
 }
 
 /* Utility classes */
@@ -156,6 +159,10 @@ h1, h2, h3, h4, h5, h6, p {
     @media (min-width: var(--desktop)) {
         display: none;
     }
+}
+
+.mw-half {
+    max-width: calc(var(--content-max-width) / 2);
 }
 
 .relative {
@@ -200,6 +207,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 .justify-center {
     justify-content: center;
+}
+
+.justify-start {
+    justify-items: flex-start;
 }
 
 .justify-self-center {
@@ -327,17 +338,17 @@ body {
 }
 
 .content-grid, .full-width {
-    --max-width: 1200px;
+    --max-width: var(--content-max-width);
     --padding-inline: 3.125%;
 
     display: grid;
     grid-template-columns: [full-width-start] 1fr [content-start] min(var(--max-width), 100% - var(--padding-inline) * 2) [content-end] 1fr [full-width-end];
 
-    > * {
+    > *, > .umb-block-list > * {
         grid-column: content;
     }
 
-    > .full-width {
+    .full-width, .umb-block-list {
         grid-column: full-width;
     }
 }
@@ -352,5 +363,18 @@ body {
 .current a { color: var(--clr-secondary); }
 
 .btn {
-    outline-color: transparent;
+    font-size: 1.125rem;
+    font-weight: var(--fw-bold);
+    border-radius: 0.17em;
+    padding: 0.83em 2.22em;
+}
+
+.btn.primary {
+    background-color: var(--clr-primary-100);
+    color: var(--clr-accent);
+    transition: all 200ms ease-in;
+
+    &:hover, &:focus-visible {
+        background-color: var(--clr-border-light);
+    }
 }
