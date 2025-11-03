@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.AboutCallbackSection)Model.Content;
+}
+
+<section class="relative py-xl flex col align-start">
+    <h2 class="clr-secondary text-xs text-bold uppercase">@content.AboutCallbackLabel</h2>
+    <h3 class="secondary-heading mt-xs">@content.AboutCallbackTitle</h3>
+    <q class="text-lg italic mw-half mt-md">@content.AboutCallbackQuote</q>
+    <p class="text-xs mt-sm">@content.AboutCallbackText</p>
+
+    @if (@content.AboutCallbackSignatureImage != null)
+    {
+        <img class="mt-sm" src="@content.AboutCallbackSignatureImage.Url()" alt="@content.AboutCallbackName" />
+    }
+    <p class="text-xs mt-xs">@content.AboutCallbackName - @content.AboutCallbackRole</p>
+    <div class="card callback">
+        <h3 class="tertiary-heading clr-accent bgc-primary">@content.AboutCallbackFormTitle</h3>
+        <p class="text-xs italic">@content.AboutCallbackFormDescription</p>
+        <form class="form">
+            <div>
+                <label class="visually-hidden" for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Name" />
+            </div>
+            <div>
+                <label class="visually-hidden" for="email">Email address</label>
+                <input type="email" name="email" id="email" placeholder="Email address" />
+            </div>
+            <div>
+                <label class="visually-hidden" for="phone">Phone</label>
+                <input type="text" name="phone" id="phone" placeholder="Phone" />
+            </div>
+            <div>
+                <label class="visually-hidden" for="guidance">Guidance Type</label>
+                <select name="guidance" id="guidance">
+                    <option value="financial consulting">Financial consulting</option>
+                </select>
+            </div>
+            <button class="btn accent" type="submit">Submit</button>
+        </form>
+    </div>
+</section>
