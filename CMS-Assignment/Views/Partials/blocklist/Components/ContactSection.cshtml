@@ -14,13 +14,13 @@
 
 <section class="full-width pt-md" style="background-color: @bgColor;">
     <div class="flex align-center gap-xl">
-        <div class="flex-basis-lg" style="background-image: url('/images/bg.svg'), url('/images/dot.svg'); background-repeat: no-repeat; background-position: left bottom, right 57px bottom;">
+        <div class="flex-4" style="background-image: url('/images/bg.svg'), url('/images/dot.svg'); background-repeat: no-repeat; background-position: left bottom, right 64px bottom 6px;">
             @if (content.ContactImage != null)
             {
                 <img src="@content.ContactImage.Url()" alt="Portrait of happy person in glasses" />
             }
         </div>
-        <div class="flex col gap-md">
+        <div class="flex-3 flex col gap-md">
             <h2 class="secondary-heading">@content.ContactTitle</h2>
             <ul class="flex col gap-md">
                 <li class="relative pl-sm-md flex col gap-xs">
