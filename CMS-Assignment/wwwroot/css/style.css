@@ -310,6 +310,8 @@ h1, h2, h3, h4, h5, h6, p {
 .uppercase { text-transform: uppercase; }
 .italic { font-style: italic; }
 
+.shadow { box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.1); z-index: 1; }
+
 .icon-border {
     &:first-of-type {
         border-left: 1px solid var(--clr-border-light);
@@ -392,7 +394,7 @@ body {
 }
 
 /* Components */
-.current a { color: var(--clr-secondary); }
+.current a, .active { color: var(--clr-secondary); }
 
 .btn {
     font-size: 1.125rem;
