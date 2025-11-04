@@ -1,0 +1,31 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.StorySection)Model.Content;
+}
+
+<section class="relative full-width bgc-primary pt-xl pb-2xl">
+    <div class="center-text pb-3xl" style="background-image: url(@content.StoryBgImage?.Url()); background-repeat: no-repeat; background-size: cover; background-position: top;">
+        <h2 class="clr-secondary text-xs text-bold uppercase">@content.StoryLabel</h2>
+        <h3 class="secondary-heading clr-light mt-xs">@content.StoryTitle</h3>
+        <ul class="flex mt-lg">
+            <li class="flex-1">
+                <h4 class="clr-secondary text-display text-semi-bold">@content.StoryNumberOfCustomers</h4>
+                <p class="clr-light text-semi-bold">More than @content.StoryNumberOfCustomers customers has been served</p>
+            </li>
+            <li class="flex-1">
+                <h4 class="clr-secondary text-display text-semi-bold">@content.StoryNumberOfProjects</h4>
+                <p class="clr-light text-semi-bold">More than @content.StoryNumberOfProjects projects has been completed</p>
+            </li>
+            <li class="flex-1">
+                <h4 class="clr-secondary text-display text-semi-bold">@content.StoryNumberOfBranches</h4>
+                <p class="clr-light text-semi-bold">More than @content.StoryNumberOfBranches branches has been established in Europe and America</p>
+            </li>
+        </ul>
+
+        @if (content.StoryImage != null)
+        {
+            <img class="image-popout" src="@content.StoryImage.Url()" alt="" />
+        }
+    </div>
+</section>

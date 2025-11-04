@@ -46,7 +46,7 @@ svg {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    line-height: 1.1;
+    line-height: 1.15;
     text-wrap: balance;
 }
 
@@ -89,14 +89,15 @@ h1, h2, h3, h4, h5, h6, p {
     --clr-white-200: #F7F7F7;
     --clr-dark: #0E0E0E;
     --clr-gray-100: #EBEBEB;
-    --clr-gray-200: #606966;
+    --clr-gray-200: #9C9EA6;
+    --clr-gray-300: #606966;
 
     --clr-background: var(--clr-white-100);
     --clr-body: var(--clr-primary-200);
     --clr-heading: var(--clr-primary-100);
     --clr-logo: var(--clr-primary-100);
     --clr-border: var(--clr-gray-100);
-    --clr-border-light: var(--clr-gray-200);
+    --clr-border-light: var(--clr-gray-300);
 
     /* Typography */
     --ff-primary: 'Poppins', sans-serif;
@@ -110,12 +111,13 @@ h1, h2, h3, h4, h5, h6, p {
     --fs-xs: clamp(0.75rem, 0.5vw + 0.65rem, 0.875rem);
     --fs-sm: clamp(0.875rem, 0.5vw + 0.775rem, 1rem);
     --fs-body: clamp(1rem, 0.4vw + 0.9rem, 1.125rem);
-    --fs-h6: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
-    --fs-h5: clamp(1.25rem, 0.6vw + 1.1rem, 1.5rem);
-    --fs-h4: clamp(1.5rem, 0.8vw + 1.2rem, 2rem);
-    --fs-h3: clamp(1.75rem, 1vw + 1.25rem, 2.25rem);
+    --fs-h6: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+    --fs-h5: clamp(1.25rem, 0.6vw + 1.1rem, 1.375rem);
+    --fs-h4: clamp(1.375rem, 0.8vw + 1.2rem, 1.5rem);
+    --fs-h3: clamp(1.5rem, 1vw + 1.25rem, 1.875rem);
     --fs-h2: clamp(2rem, 1.2vw + 1.5rem, 2.5rem);
-    --fs-h1: clamp(2.5rem, 2vw + 1.5rem, 3.5rem);
+    --fs-h1: clamp(2.5rem, 2vw + 1.5rem, 4.375rem);
+    --fs-display: clamp(4.375rem, 3vw + 2.5rem, 6.25rem);
 
     /* Spacing */
     --space-xs: 0.5rem;
@@ -123,10 +125,15 @@ h1, h2, h3, h4, h5, h6, p {
     --space-md: 2rem;
     --space-lg: 4rem;
     --space-xl: 6rem;
+    --space-2xl: 10.7rem;
+    --space-3xl: 17rem;
 
     /* Breakpoints */
     --tablet: 768px;
     --desktop: 1200px;
+
+    /* Layout */
+    --content-max-width: 1160px;
 }
 
 /* Utility classes */
@@ -158,6 +165,10 @@ h1, h2, h3, h4, h5, h6, p {
     }
 }
 
+.mw-half {
+    max-width: calc(var(--content-max-width) / 2);
+}
+
 .relative {
     position: relative;
 }
@@ -176,6 +187,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 .flex {
     display: flex;
+}
+
+.flex-1 {
+    flex: 1;
 }
 
 .col {
@@ -202,6 +217,14 @@ h1, h2, h3, h4, h5, h6, p {
     justify-content: center;
 }
 
+.justify-items-center {
+    justify-items: center;
+}
+
+.justify-start {
+    justify-items: flex-start;
+}
+
 .justify-self-center {
     justify-self: center;
 }
@@ -215,6 +238,7 @@ h1, h2, h3, h4, h5, h6, p {
     justify-content: space-between;
 }
 
+.mi-auto { margin-inline: auto; }
 .ml-auto { margin-left: auto; }
 .mr-auto { margin-right: auto; }
 
@@ -235,6 +259,20 @@ h1, h2, h3, h4, h5, h6, p {
 .py-md { padding-block: var(--space-md); }
 .py-lg { padding-block: var(--space-lg); }
 .py-xl { padding-block: var(--space-xl); }
+
+.pt-xs { padding-top: var(--space-xs); }
+.pt-sm { padding-top: var(--space-sm); }
+.pt-md { padding-top: var(--space-md); }
+.pt-lg { padding-top: var(--space-lg); }
+.pt-xl { padding-top: var(--space-xl); }
+
+.pb-xs { padding-bottom: var(--space-xs); }
+.pb-sm { padding-bottom: var(--space-sm); }
+.pb-md { padding-bottom: var(--space-md); }
+.pb-lg { padding-bottom: var(--space-lg); }
+.pb-xl { padding-bottom: var(--space-xl); }
+.pb-2xl { padding-bottom: var(--space-2xl); }
+.pb-3xl { padding-bottom: var(--space-3xl); }
 
 .mt-xs { margin-top: var(--space-xs); }
 .mt-sm { margin-top: var(--space-sm); }
@@ -266,6 +304,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 .text-xs { font-size: var(--fs-xs); }
 .text-sm { font-size: var(--fs-sm); }
+.text-lg { font-size: var(--fs-h6); }
+.text-display { font-size: var(--fs-display); }
+
+.uppercase { text-transform: uppercase; }
+.italic { font-style: italic; }
 
 .icon-border {
     &:first-of-type {
@@ -326,8 +369,8 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
-.content-grid, .full-width {
-    --max-width: 1200px;
+.content-grid, .full-width, .umb-block-list {
+    --max-width: var(--content-max-width);
     --padding-inline: 3.125%;
 
     display: grid;
@@ -337,20 +380,108 @@ body {
         grid-column: content;
     }
 
-    > .full-width {
+    .full-width {
         grid-column: full-width;
     }
 }
 
 .item-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.875rem;
 }
 
 /* Components */
 .current a { color: var(--clr-secondary); }
 
 .btn {
-    outline-color: transparent;
+    font-size: 1.125rem;
+    font-weight: var(--fw-bold);
+    border-radius: 0.17em;
+    padding: 0.83em 2.22em;
+}
+
+.btn.primary {
+    background-color: var(--clr-primary-100);
+    color: var(--clr-accent);
+    transition: all 200ms ease-in;
+
+    &:hover, &:focus-visible {
+        background-color: var(--clr-border-light);
+    }
+}
+
+.btn.accent {
+    background-color: var(--clr-accent);
+    color: var(--clr-primary-100);
+    transition: all 200ms ease-in;
+
+    &:hover, &:focus-visible {
+        background-color: var(--clr-secondary);
+    }
+}
+
+.callback {
+    position: absolute;
+    right: 0;
+    top: -80px;
+}
+
+.card {
+    max-width: 470px;
+    text-align: left;
+    background-color: var(--clr-white-100);
+    padding-bottom: 1.875rem;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+    
+    > :not(:first-child, img) {
+        padding-inline: 1.875rem;
+        margin-top: 1.875rem;
+    }
+
+    > :first-child {
+        padding: 1.875rem;
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.375rem;
+
+    input, select {
+        border: 1px solid var(--clr-border);
+        padding: 1rem 1.375rem;
+        font-size: var(--fs-xs);
+        width: 100%;
+    }
+
+    input, input::placeholder {
+        color: var(--clr-gray-200);
+        font-style: italic;
+    }
+}
+
+.image-popout {
+    position: absolute;
+    bottom: -174px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+main:has(.image-popout) + footer {
+    margin-top: 260px !important;
+}
+
+section:has(.image-popout) + section {
+    padding-top: 260px !important;
+}
+
+main + footer.reset-margin {
+    margin-top: 0 !important;
 }

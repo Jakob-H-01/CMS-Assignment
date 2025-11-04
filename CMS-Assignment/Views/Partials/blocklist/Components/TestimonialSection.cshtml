@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.TestimonialSection)Model.Content;
+}
+
+<section class="pt-xl">
+    <div class="grid justify-items-center center-text pb-xl" style="background-image: url(@content.TestimonialBgImage?.Url()); background-repeat: no-repeat; background-size: cover; background-position: top 50px left;">
+        @Html.Raw(content.TestimonialTitle)
+        <p class="mt-md">@content.TestimonialText</p>
+    
+        @if (content.TestimonialLink != null)
+        {
+            <a class="btn primary mt-md" href="@content.TestimonialLink.Url">@content.TestimonialLink.Name</a>
+        }
+    </div>
+
+    @if (content.TestimonialImage != null)
+    {
+        <img src="@content.TestimonialImage.Url()" alt="" />
+    }
+</section>

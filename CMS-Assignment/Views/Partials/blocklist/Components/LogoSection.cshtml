@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.LogoSection)Model.Content;
+    var companies = content.Companies;
+}
+
+<section class="py-xl">
+    <ul class="flex space-between align-center">
+        @if (companies != null)
+        {
+            foreach (var company in companies)
+            {
+                <li><partial name="Partials/Blocklist/Components/CompanyItem" model="company"></li>
+            }
+        }
+    </ul>
+</section>
