@@ -20,16 +20,16 @@
     var selection = Model.Root().Children().Where(x => x.IsVisible(PublishedValueFallback)).ToArray();
 }
 
-<div class="grid col-3-center align-center py-sm">
+<div class="relative flex align-center py-sm">
     @if (siteLogo != null)
     {
-        <a class="mr-auto" href="/"><img src="@siteLogo.Url()" alt="@siteName" /></a>
+        <a href="/"><img src="@siteLogo.Url()" alt="@siteName" /></a>
     }
     else
     {
-        <a class="mr-auto" href="/">@siteName</a>
+        <a href="/">@siteName</a>
     }
-    <nav>
+    <nav class="absolute absolute-center-x">
         @if (selection?.Length > 0)
         {
             <ul class="flex align-center gap-lg">
