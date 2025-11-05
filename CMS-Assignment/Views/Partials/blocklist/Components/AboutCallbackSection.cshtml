@@ -15,10 +15,10 @@
         <img class="mt-sm" src="@content.AboutCallbackSignatureImage.Url()" alt="@content.AboutCallbackName" />
     }
     <p class="text-xs mt-xs">@content.AboutCallbackName - @content.AboutCallbackRole</p>
-    <div class="card callback">
-        <h3 class="tertiary-heading clr-accent bgc-primary">@content.AboutCallbackFormTitle</h3>
-        <p class="text-xs italic">@content.AboutCallbackFormDescription</p>
-        <form class="form">
+    <div class="bgc-lightest shadow-sm pb-md absolute right -top-sm max-w-40">
+        <h3 class="tertiary-heading clr-accent bgc-primary p-md">@content.AboutCallbackFormTitle</h3>
+        <p class="text-xs italic px-md mt-md">@content.AboutCallbackFormDescription</p>
+        <form class="form flex col gap-sm px-md mt-md">
             <div>
                 <label class="visually-hidden" for="name">Name</label>
                 <input type="text" name="name" id="name" placeholder="Name" />
