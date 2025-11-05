@@ -2,41 +2,84 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
     var content = (ContentModels.ServiceSection)Model.Content;
+    var settings = Model.Settings as ContentModels.ServiceSettings;
+    var bgColor = settings?.ServiceBgColor?.Color ?? "#FFFFFF";
 }
 
-<section class="full-width bgc-light center-text py-xl">
-    <h2 class="clr-secondary text-xs text-bold uppercase">@content.ServiceLabel</h2>
-    <h3 class="secondary-heading mw-half mi-auto mt-xs">@content.ServiceTitle</h3>
-    <ol class="item-grid mt-md">
-        <li class="card">
-            <h4 class="quinary-heading">Risk Management</h4>
-            <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-            <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-        </li>
-        <li class="card">
-            <h4 class="quinary-heading">Risk Management</h4>
-            <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-            <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-        </li>
-        <li class="card">
-            <h4 class="quinary-heading">Risk Management</h4>
-            <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-            <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-        </li>
-        <li class="card">
-            <h4 class="quinary-heading">Risk Management</h4>
-            <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-            <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-        </li>
-        <li class="card">
-            <h4 class="quinary-heading">Risk Management</h4>
-            <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-            <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-        </li>
-        <li class="card">
-            <h4 class="quinary-heading">Risk Management</h4>
-            <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-            <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-        </li>
-    </ol>
+<section class="full-width center-text py-xl" style="background-color: @bgColor;">
+    @if (settings!.ShowServiceLabel)
+    {
+        <h2 class="clr-secondary text-xs text-bold uppercase">@content.ServiceLabel</h2>
+        <h3 class="secondary-heading mw-half mi-auto mt-xs">@content.ServiceTitle</h3>
+        
+        <ol class="item-grid mt-md">
+            <li class="card">
+                <h4 class="quinary-heading">Risk Management</h4>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h4 class="quinary-heading">Risk Management</h4>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h4 class="quinary-heading">Risk Management</h4>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h4 class="quinary-heading">Risk Management</h4>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h4 class="quinary-heading">Risk Management</h4>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h4 class="quinary-heading">Risk Management</h4>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+        </ol>
+    }
+    else
+    {
+        <h2 class="secondary-heading mw-half mi-auto">@content.ServiceTitle</h2>
+
+        <ol class="item-grid mt-md">
+            <li class="card">
+                <h3 class="quinary-heading">Risk Management</h3>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h3 class="quinary-heading">Risk Management</h3>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h3 class="quinary-heading">Risk Management</h3>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h3 class="quinary-heading">Risk Management</h3>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h3 class="quinary-heading">Risk Management</h3>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+            <li class="card">
+                <h3 class="quinary-heading">Risk Management</h3>
+                <img src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
+                <p class="text-xs">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </li>
+        </ol>
+    }
 </section>
