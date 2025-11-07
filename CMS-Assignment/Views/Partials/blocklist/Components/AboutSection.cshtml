@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+
+    var siteName = siteSettings?.SiteName ?? "No site name";
+    
+    var content = (ContentModels.AboutSection)Model.Content;
+}
+
+<section class="flex gap-lg py-xl">
+    <div class="flex col gap-xs">
+        @if (content.AboutImage != null)
+        {
+            <img src="@content.AboutImage.Url()" alt="@content.AboutName" />
+        }
+        <p class="text-sm italic clr-primary">@content.AboutName - @content.AboutRole at @siteName</p>
+    </div>
+    <div class="flex-1 flex col gap-sm text-xs">
+        <q class="italic text-lg mb-sm">@content.AboutQuote</q>
+        @Html.Raw(content.AboutText)
+    </div>
+</section>

@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+
+    var siteName = siteSettings?.SiteName ?? "No site name";
+
+    var content = (ContentModels.TeamMember)Model.Content;
+}
+
+<div>
+    @if (content.TeamMemberImage != null)
+    {
+        <img class="w-100" src="@content.TeamMemberImage.Url()" alt="@content.TeamMemberName" />
+    }
+    <h4 class="quinary-heading px-sm pt-sm">@content.TeamMemberName</h4>
+    <p class="text-xs clr-gray px-sm pb-sm">@content.TeamMemberRole at @siteName</p>
+</div>
