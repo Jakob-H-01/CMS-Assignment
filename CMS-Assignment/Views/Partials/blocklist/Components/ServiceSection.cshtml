@@ -3,7 +3,14 @@
 @{
     var content = (ContentModels.ServiceSection)Model.Content;
     var settings = Model.Settings as ContentModels.ServiceSettings;
+
     var bgColor = settings?.ServiceBgColor?.Color ?? "#FFFFFF";
+
+    var current = Umbraco.AssignedContentItem;
+    var siteRoot = current.Root();
+
+    var servicePage = siteRoot.Children<ServicePage>()?.FirstOrDefault();
+    var items = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate).ToList() ?? [];
 }
 
 <section class="full-width center-text py-xl" style="background-color: @bgColor;">
@@ -12,74 +19,48 @@
         <h2 class="clr-secondary text-xs text-bold uppercase">@content.ServiceLabel</h2>
         <h3 class="secondary-heading mw-half mi-auto mt-xs">@content.ServiceTitle</h3>
         
-        <ol class="item-grid gap-md mt-md">
-            <li class="bgc-lightest border text-left">
-                <h4 class="quinary-heading py-sm-md px-md">Risk Management</h4>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h4 class="quinary-heading py-sm-md px-md">Risk Management</h4>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h4 class="quinary-heading py-sm-md px-md">Risk Management</h4>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h4 class="quinary-heading py-sm-md px-md">Risk Management</h4>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h4 class="quinary-heading py-sm-md px-md">Risk Management</h4>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h4 class="quinary-heading py-sm-md px-md">Risk Management</h4>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-        </ol>
+        @if (items.Any())
+        {
+            <ol class="item-grid gap-md mt-md">
+                @foreach (var item in items)
+                {
+                    <li class="bgc-lightest border text-left">
+                        <a href="@item.Url()">
+                            <h4 class="quinary-heading py-sm-md px-md">@item.Name</h4>
+                            <img class="w-100" src="@(item.ServiceDetailThumbnail?.Url() ?? "~/images/image-21-min 1.jpg")" alt="@item.Name" />
+                            <p class="text-xs py-sm-md px-md">@item.ServiceDetailExcerpt</p>
+                        </a>
+                    </li>
+                }
+            </ol>
+        }
+        else
+        {
+            <p>No Services Available</p>
+        }
     }
     else
     {
         <h2 class="secondary-heading mw-half mi-auto">@content.ServiceTitle</h2>
 
-        <ol class="item-grid gap-md mt-md">
-            <li class="bgc-lightest border text-left">
-                <h3 class="quinary-heading py-sm-md px-md">Risk Management</h3>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h3 class="quinary-heading py-sm-md px-md">Risk Management</h3>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h3 class="quinary-heading py-sm-md px-md">Risk Management</h3>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h3 class="quinary-heading py-sm-md px-md">Risk Management</h3>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h3 class="quinary-heading py-sm-md px-md">Risk Management</h3>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-            <li class="bgc-lightest border text-left">
-                <h3 class="quinary-heading py-sm-md px-md">Risk Management</h3>
-                <img class="w-100" src="~/images/image-21-min 1.jpg" alt="Energetic people during business meeting" />
-                <p class="text-xs py-sm-md px-md">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            </li>
-        </ol>
+        @if (items.Any())
+        {
+            <ol class="item-grid gap-md mt-md">
+                @foreach (var item in items)
+                {
+                    <li class="bgc-lightest border text-left">
+                        <a href="@item.Url()">
+                            <h3 class="quinary-heading py-sm-md px-md">@item.Name</h3>
+                            <img class="w-100" src="@(item.ServiceDetailThumbnail?.Url() ?? "~/images/image-21-min 1.jpg")" alt="@item.Name" />
+                            <p class="text-xs py-sm-md px-md">@item.ServiceDetailExcerpt</p>
+                        </a>
+                    </li>
+                }
+            </ol>
+        }
+        else
+        {
+            <p>No Services Available</p>
+        }
     }
 </section>
