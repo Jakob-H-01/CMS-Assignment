@@ -1,0 +1,7 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.Tag)Model.Content;
+}
+
+<a class="block text-xs clr-primary px-sm py-xs border br-lg" href="#">@content.TagName</a>

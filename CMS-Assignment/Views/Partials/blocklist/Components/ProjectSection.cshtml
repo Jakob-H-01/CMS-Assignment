@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ProjectSection)Model.Content;
+
+    var current = Umbraco.AssignedContentItem;
+    var siteRoot = current.Root();
+
+    var projectPage = siteRoot.Children<ProjectPage>()?.FirstOrDefault();
+    var items = projectPage?.Children<ProjectDetail>()?.OrderByDescending(x => x.CreateDate).ToList() ?? [];
+}
+
+<section class="py-lg">
+    <div class="flex gap-sm-md h-100">
+        <div class="flex-14 pb-lg">
+            @if (items.Any())
+            {
+                <ol class="border-bottom-list">
+                    @foreach (var item in items)
+                    {
+                        <li class="flex gap-md">
+                            <img src="@(item.ProjectDetailThumbnail?.Url() ?? "~/images/image-21-min 1.jpg")" alt="@item.Name" />
+                            <div class="flex col">
+                                <h2 class="quinary-heading clr-primary">@item.Name</h2>
+                                <p class="text-xs clr-gray mt-2xs"><i class="fa-regular fa-calendar-days mr-2xs"></i>@item.ProjectDetailDate</p>
+                                <p class="text-xs mt-xs">@item.ProjectDetailExcerpt</p>
+                                <a class="text-xs text-semi-bold effect-secondary mt-auto" href="@item.Url()">Read more <i class="fa-solid fa-arrow-right fa-sm clr-secondary ml-2xs"></i></a>
+                            </div>
+                        </li>
+                    }
+                </ol>
+            }
+            else
+            {
+                <p>No Projects Available</p>
+            }
+        </div>
+        <div class="divider-vertical"></div>
+        <aside class="sidebar flex-5">
+            @Html.GetBlockListHtml(content.ProjectAsides)
+        </aside>
+    </div>
+</section>
