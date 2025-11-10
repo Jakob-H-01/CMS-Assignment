@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.SupportItem)Model.Content;
+}
+
+<div class="bgc-primary px-sm pt-sm pb-md" style="background-image: url('/images/mail.svg'); background-repeat: no-repeat; background-position: right bottom;">
+    <h2 class="quinary-heading clr-accent">@content.SupportTitle</h2>
+    <p class="text-xs clr-light mt-sm">@content.SupportText</p>
+    <form class="form mt-md">
+        <div>
+            <label class="visually-hidden" for="email">Email address</label>
+            <div class="relative">
+                <input type="email" name="email" id="email" placeholder="E-mail address" />
+                <i class="fa-regular fa-envelope fa-lg clr-primary absolute absolute-center-y right-xs"></i>
+            </div>
+        </div>
+    </form>
+</div>
