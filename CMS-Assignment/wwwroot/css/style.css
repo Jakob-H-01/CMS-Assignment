@@ -192,6 +192,8 @@ h1, h2, h3, h4, h5, h6, p {
 
 .center-text { text-align: center; }
 
+.block { display: block; }
+
 .grid { display: grid; }
 
 .flex { display: flex; }
@@ -201,6 +203,8 @@ h1, h2, h3, h4, h5, h6, p {
 .flex-3 { flex: 3; }
 .flex-4 { flex: 4; }
 .flex-5 { flex: 5; }
+
+.flex-wrap { flex-wrap: wrap; }
 
 .col { flex-direction: column; }
 
@@ -360,6 +364,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .border { border: 1px solid var(--clr-border); }
 .br-sm { border-radius: 0.215em; }
+.br-lg { border-radius: 100vw; }
 
 .icon-border {
     &:first-of-type {

@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ProjectSection)Model.Content;
+}
+
+<section class="py-lg">
+    <div class="flex gap-sm-md h-100">
+        <div class="flex-5 pb-lg">
+            
+        </div>
+        <div class="divider-vertical"></div>
+        <aside class="sidebar flex-2">
+            @Html.GetBlockListHtml(content.ProjectAsides)
+        </aside>
+    </div>
+</section>
