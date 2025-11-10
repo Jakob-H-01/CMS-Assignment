@@ -114,8 +114,8 @@ h1, h2, h3, h4, h5, h6, p {
     --fs-body: clamp(1rem, 0.4vw + 0.9rem, 1.125rem);
     --fs-h6: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
     --fs-h5: clamp(1.25rem, 0.6vw + 1.1rem, 1.375rem);
-    --fs-h4: clamp(1.375rem, 0.8vw + 1.2rem, 1.5rem);
-    --fs-h3: clamp(1.5rem, 1vw + 1.25rem, 1.875rem);
+    --fs-h4: clamp(1.375rem, 0.8vw + 1.2rem, 1.5625rem);
+    --fs-h3: clamp(1.5625rem, 1vw + 1.25rem, 1.875rem);
     --fs-h2: clamp(2rem, 1.2vw + 1.5rem, 2.5rem);
     --fs-h1: clamp(2.5rem, 2vw + 1.5rem, 4.375rem);
     --fs-display: clamp(4.375rem, 3vw + 2.5rem, 6.25rem);
@@ -359,6 +359,7 @@ h1, h2, h3, h4, h5, h6, p {
 .shadow-lg { box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.1); z-index: 1; }
 
 .border { border: 1px solid var(--clr-border); }
+.br-sm { border-radius: 0.215em; }
 
 .icon-border {
     &:first-of-type {
@@ -404,7 +405,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .quaternary-heading {
     font-size: var(--fs-h4);
-    font-weight: var(--fw-semi-bold);
+    font-weight: var(--fw-bold);
 }
 
 .quinary-heading {
@@ -501,16 +502,20 @@ body {
         width: 100%;
     }
 
-    input, select {
+    input, select, textarea {
         border: 1px solid var(--clr-border);
         padding: 1rem 1.375rem;
         font-size: var(--fs-xs);
         width: 100%;
     }
 
-    input, input::placeholder {
+    input, input::placeholder, textarea, textarea::placeholder {
         color: var(--clr-gray-300);
         font-style: italic;
+    }
+
+    textarea {
+        resize: none;
     }
 }
 

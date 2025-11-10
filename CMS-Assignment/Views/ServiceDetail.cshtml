@@ -6,7 +6,7 @@
 
 <partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model">
 
-<section class="content-grid py-lg">
+<section class="content-grid pt-lg">
 	<div class="flex gap-sm-md">
 		<aside class="sidebar flex-2">
 			@Html.GetBlockListHtml(Model.ServiceDetailAsides)
@@ -17,3 +17,5 @@
 		</div>
 	</div>
 </section>
+
+@Html.GetBlockListHtml(Model.ServiceDetailAdditionalSections)
