@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5, h6, p {
 
     /* Breakpoints */
     --tablet: 768px;
-    --desktop: 1200px;
+    --desktop: 992px;
 
     /* Layout */
     --content-max-width: 1160px;
@@ -155,13 +155,19 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .hidden-mobile {
-    @media (max-width: var(--tablet)) {
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.hidden-mobile-tablet {
+    @media (max-width: 991px) {
         display: none;
     }
 }
 
 .hidden-desktop {
-    @media (min-width: var(--desktop)) {
+    @media (min-width: 992px) {
         display: none;
     }
 }
@@ -177,6 +183,11 @@ h1, h2, h3, h4, h5, h6, p {
 .cover { object-fit: cover; }
 
 .relative { position: relative; }
+.relative-desktop {
+    @media (min-width: 992px) {
+        position: relative;
+    }
+}
 .absolute { position: absolute; }
 
 .absolute-center-x { left: 50%; transform: translateX(-50%); }
@@ -213,7 +224,7 @@ h1, h2, h3, h4, h5, h6, p {
 .col-to-row {
     flex-direction: column;
 
-    @media (min-width: var(--tablet)) {
+    @media (min-width: 992px) {
         flex-direction: row;
     }
 }
@@ -603,4 +614,50 @@ main + footer.reset-margin {
     p {
         margin-bottom: 0.625rem;
     }   
+}
+
+.mobile-menu {
+    @media (max-width: 991px) {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        left: unset;
+        transform: unset;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 35vw;
+        z-index: 999;
+        background-color: var(--clr-white-100);
+        padding-block: var(--space-xl);
+        border-left: 1px solid var(--clr-border);
+    
+        ul {
+            gap: 0;
+        }
+
+        ul, li, a {
+            width: 100%;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            padding-block: var(--space-sm);
+        }
+
+        .close-mobile-menu-btn {
+            position: fixed;
+            top: var(--space-md);
+            right: var(--space-sm);
+        }
+
+        + .btn-search {
+            display: flex;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 999;
+        }
+    }
 }

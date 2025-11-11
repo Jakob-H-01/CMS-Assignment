@@ -5,4 +5,20 @@
             document.querySelector("footer").classList.add("reset-margin");
         }
     });
+
+    const openMenuBtn = document.querySelector('#open-mobile-menu');
+    const closeMenuBtn = document.querySelector('#close-mobile-menu');
+    const nav = document.querySelector('#main-navigation');
+
+    openMenuBtn.addEventListener('click', () => {
+        nav.classList.add('mobile-menu');
+        openMenuBtn.setAttribute('aria-expanded', 'true');
+        closeMenuBtn.setAttribute('aria-expanded', 'true');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+        nav.classList.remove('mobile-menu');
+        openMenuBtn.setAttribute('aria-expanded', 'false');
+        closeMenuBtn.setAttribute('aria-expanded', 'false');
+    });
 });
