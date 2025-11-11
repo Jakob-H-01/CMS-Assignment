@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.RecentItem)Model.Content;
+
+    var current = Umbraco.AssignedContentItem;
+    var siteRoot = current.Root();
+
+    var projectPage = siteRoot.Children<ProjectPage>()?.FirstOrDefault();
+    var items = projectPage?.Children<ProjectDetail>()?.OrderByDescending(x => x.CreateDate).ToList() ?? [];
+}
+
+<div class="flex col gap-sm">
+    <h2 class="quinary-heading clr-primary">@content.RecentTitle</h2>
+
+    @if (items.Any())
+    {
+        <ol class="border-bottom-list small-gap">
+            @for (var i = 0; i < 4; i++)
+            {
+                var item = items[i];
+
+                if (item != null)
+                {
+                    <li>
+                        <a class="flex gap-sm" href="@item.Url()">
+                            <img class="max-w-45 cover" src="@(item.ProjectDetailThumbnail?.Url() ?? "~/images/image-21-min 1.jpg")" alt="@item.Name" />
+                            <div class="flex col flex-1">
+                                <h3 class="text-xs text-semi-bold clr-primary line-height-body">@item.Name</h3>
+                                <p class="text-xs clr-gray">
+                                    <i class="fa-regular fa-calendar-days"></i>
+                                    @item.ProjectDetailDate.ToString("MMMM d, yyyy", System.Globalization.CultureInfo.InvariantCulture)
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                }
+            }
+        </ol>
+    }
+    else
+    {
+        <p>No Projects Available</p>
+    }
+</div>

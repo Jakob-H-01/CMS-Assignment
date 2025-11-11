@@ -168,6 +168,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .mw-half { max-width: calc(var(--content-max-width) / 2); }
 .max-w-40 { max-width: 40%; }
+.max-w-45 { max-width: 45%; }
 .max-w-50 { max-width: 50%; }
 
 .w-100 { width: 100%; }
@@ -363,6 +364,8 @@ h1, h2, h3, h4, h5, h6, p {
 
 .uppercase { text-transform: uppercase; }
 .italic { font-style: italic; }
+
+.line-height-body { line-height: 1.5; }
 
 .opacity-40 { opacity: 40%; }
 
@@ -571,6 +574,14 @@ main + footer.reset-margin {
 
 .border-bottom-list > :not(:first-child) {
     padding-top: 1.5625rem;
+}
+
+.border-bottom-list.small-gap > :not(:last-child) {
+    padding-bottom: 0.875rem;
+}
+
+.border-bottom-list.small-gap > :not(:first-child) {
+    padding-top: 0.875rem;
 }
 
 .rte {

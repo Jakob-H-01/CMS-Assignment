@@ -6,4 +6,16 @@
 
 <partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model">
 
+<section class="content-grid pt-xl pb-lg">
+    <div class="flex gap-sm-md">
+        <div class="flex-14 pb-md">
+            
+        </div>
+        <div class="divider-vertical"></div>
+        <aside class="sidebar flex-5">
+            @Html.GetBlockListHtml(Model.ProjectDetailAsides)
+        </aside>
+    </div>
+</section>
+
 @Html.GetBlockListHtml(Model.ProjectDetailAdditionalSections)
