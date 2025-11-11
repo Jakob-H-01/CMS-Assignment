@@ -4,18 +4,20 @@
     var content = (ContentModels.AboutCallbackSection)Model.Content;
 }
 
-<section class="relative py-xl flex col align-start">
-    <h2 class="clr-secondary text-xs text-bold uppercase">@content.AboutCallbackLabel</h2>
-    <h3 class="secondary-heading mt-xs">@content.AboutCallbackTitle</h3>
-    <q class="text-lg italic mw-half mt-md">@content.AboutCallbackQuote</q>
-    <p class="text-xs mt-sm">@content.AboutCallbackText</p>
+<section class="relative py-xl flex col-mobile space-between gap-lg">
+    <div class="flex col align-start max-w-55">
+        <h2 class="clr-secondary text-xs text-bold uppercase">@content.AboutCallbackLabel</h2>
+        <h3 class="secondary-heading mt-xs">@content.AboutCallbackTitle</h3>
+        <q class="text-lg italic mw-half mt-md">@content.AboutCallbackQuote</q>
+        <p class="text-xs mt-sm">@content.AboutCallbackText</p>
 
-    @if (@content.AboutCallbackSignatureImage != null)
-    {
-        <img class="mt-sm" src="@content.AboutCallbackSignatureImage.Url()" alt="@content.AboutCallbackName" />
-    }
-    <p class="text-xs mt-xs">@content.AboutCallbackName - @content.AboutCallbackRole</p>
-    <div class="bgc-lightest shadow-sm pb-md absolute right -top-sm max-w-40">
+        @if (@content.AboutCallbackSignatureImage != null)
+        {
+            <img class="mt-sm" src="@content.AboutCallbackSignatureImage.Url()" alt="@content.AboutCallbackName" />
+        }
+        <p class="text-xs mt-xs">@content.AboutCallbackName - @content.AboutCallbackRole</p>
+    </div>
+    <div class="bgc-lightest shadow-sm pb-md absolute-tablet-desktop right -top-sm max-w-40">
         <h3 class="tertiary-heading clr-accent bgc-primary p-md">@content.AboutCallbackFormTitle</h3>
         <p class="text-xs italic px-md mt-md">@content.AboutCallbackFormDescription</p>
         <form class="form flex col gap-sm px-md mt-md">

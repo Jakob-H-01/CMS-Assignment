@@ -11,7 +11,7 @@
 }
 
 <section class="py-lg">
-    <div class="flex gap-sm-md h-100">
+    <div class="flex col-mobile-tablet gap-sm-md h-100">
         <div class="flex-14 pb-lg">
             @if (items.Any())
             {
@@ -35,7 +35,8 @@
                 <p>No Projects Available</p>
             }
         </div>
-        <div class="divider-vertical"></div>
+        <div class="divider-vertical hidden-mobile-tablet"></div>
+        <div class="divider-horizontal hidden-desktop"></div>
         <aside class="sidebar flex-5">
             @Html.GetBlockListHtml(content.ProjectAsides)
         </aside>

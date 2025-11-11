@@ -9,11 +9,11 @@
     var content = (ContentModels.AboutSection)Model.Content;
 }
 
-<section class="flex gap-lg py-xl">
-    <div class="flex col gap-xs">
+<section class="flex col-mobile-tablet gap-lg py-xl">
+    <div class="flex col gap-xs mi-auto">
         @if (content.AboutImage != null)
         {
-            <img src="@content.AboutImage.Url()" alt="@content.AboutName" />
+            <img class="w-100" src="@content.AboutImage.Url()" alt="@content.AboutName" />
         }
         <p class="text-sm italic clr-primary">@content.AboutName - @content.AboutRole at @siteName</p>
     </div>

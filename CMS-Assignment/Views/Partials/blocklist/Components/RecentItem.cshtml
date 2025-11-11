@@ -27,8 +27,8 @@
                             <img class="max-w-45 cover" src="@(item.ProjectDetailThumbnail?.Url() ?? "~/images/image-21-min 1.jpg")" alt="@item.Name" />
                             <div class="flex col flex-1">
                                 <h3 class="text-xs text-semi-bold clr-primary line-height-body">@item.Name</h3>
-                                <p class="text-xs clr-gray"><i class="fa-regular fa-calendar-days mr-2xs"></i>@item.ProjectDetailDate.ToString("MMMM d, yyyy", System.Globalization.CultureInfo.InvariantCulture)
-                                </p>
+                                <p class="text-xs clr-gray"><i class="fa-regular fa-calendar-days mr-2xs"></i>@item.ProjectDetailDate.ToString("MMMM d, yyyy", System.Globalization.CultureInfo.InvariantCulture)</p>
+                                <p class="text-xs mt-xs hidden-desktop">@item.ProjectDetailExcerpt</p>
                             </div>
                         </a>
                     </li>

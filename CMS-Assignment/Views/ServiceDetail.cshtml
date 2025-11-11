@@ -7,11 +7,12 @@
 <partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model">
 
 <section class="content-grid pt-lg">
-	<div class="flex gap-sm-md">
+	<div class="flex col-reverse-mobile-tablet gap-sm-md">
 		<aside class="sidebar flex-2">
 			@Html.GetBlockListHtml(Model.ServiceDetailAsides)
 		</aside>
-		<div class="divider-vertical"></div>
+		<div class="divider-vertical hidden-mobile-tablet"></div>
+		<div class="divider-horizontal hidden-desktop"></div>
 		<div class="flex-5 pb-lg rte">
 			@Html.Raw(Model.ServiceDetailBody)
 		</div>
