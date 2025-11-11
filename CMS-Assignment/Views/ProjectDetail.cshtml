@@ -11,9 +11,7 @@
 <section class="content-grid pt-xl pb-lg">
     <div class="flex gap-sm-md">
         <div class="flex-14 pb-md">
-            <p class="text-xs clr-gray mb-md">
-                <i class="fa-regular fa-calendar-days"></i>
-                @Model.ProjectDetailDate.ToString("MMMM d, yyyy", System.Globalization.CultureInfo.InvariantCulture)
+            <p class="text-xs clr-gray mb-md"><i class="fa-regular fa-calendar-days mr-2xs"></i>@Model.ProjectDetailDate.ToString("MMMM d, yyyy", System.Globalization.CultureInfo.InvariantCulture)
             </p>
             <div class="rte">
                 @Html.Raw(Model.ProjectDetailBody)
