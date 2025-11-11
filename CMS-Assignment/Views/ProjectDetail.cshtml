@@ -1,7 +1,9 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ProjectDetail>
 @{
-	Layout = "MainLayout.cshtml";
+    Layout = "MainLayout.cshtml";
+
+    var tags = Model.ProjectDetailTags;
 }
 
 <partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model">
@@ -9,7 +11,26 @@
 <section class="content-grid pt-xl pb-lg">
     <div class="flex gap-sm-md">
         <div class="flex-14 pb-md">
+            <p class="text-xs clr-gray mb-md">
+                <i class="fa-regular fa-calendar-days"></i>
+                @Model.ProjectDetailDate.ToString("MMMM d, yyyy", System.Globalization.CultureInfo.InvariantCulture)
+            </p>
+            <div class="rte">
+                @Html.Raw(Model.ProjectDetailBody)
+            </div>
             
+            @if (tags!.Any())
+            {
+                <div class="flex align-center gap-xs mt-lg">
+                    <h3 class="text-xs text-semi-bold clr-primary">Tags:</h3>
+                
+                    <ul class="flex gap-xs">
+                        @foreach (var tag in tags!) {
+                            <li class="bgc-accent br-lg"><partial name="Partials/Blocklist/Components/Tag" model="tag"></li>
+                        }
+                    </ul>
+                </div>
+            }
         </div>
         <div class="divider-vertical"></div>
         <aside class="sidebar flex-5">
