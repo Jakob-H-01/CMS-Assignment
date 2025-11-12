@@ -19,10 +19,10 @@
             
             @if (tags!.Any())
             {
-                <div class="flex align-center gap-xs mt-lg">
+                <div class="flex col-mobile align-center-tablet-desktop gap-xs mt-lg">
                     <h3 class="text-xs text-semi-bold clr-primary">Tags:</h3>
                 
-                    <ul class="flex gap-xs">
+                    <ul class="flex flex-wrap gap-xs">
                         @foreach (var tag in tags!) {
                             <li class="bgc-accent br-lg"><partial name="Partials/Blocklist/Components/Tag" model="tag"></li>
                         }

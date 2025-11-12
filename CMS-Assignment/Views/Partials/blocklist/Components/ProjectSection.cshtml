@@ -18,7 +18,7 @@
                 <ol class="border-bottom-list">
                     @foreach (var item in items)
                     {
-                        <li class="flex gap-md">
+                        <li class="flex col-mobile gap-md">
                             <img src="@(item.ProjectDetailThumbnail?.Url() ?? "~/images/image-21-min 1.jpg")" alt="@item.Name" />
                             <div class="flex col">
                                 <h2 class="quinary-heading clr-primary">@item.Name</h2>
