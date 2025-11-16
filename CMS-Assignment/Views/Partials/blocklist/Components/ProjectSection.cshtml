@@ -11,20 +11,20 @@
 }
 
 <section class="py-lg">
-    <div class="flex gap-sm-md h-100">
+    <div class="flex col-mobile-tablet gap-sm-md h-100">
         <div class="flex-14 pb-lg">
             @if (items.Any())
             {
                 <ol class="border-bottom-list">
                     @foreach (var item in items)
                     {
-                        <li class="flex gap-md">
+                        <li class="flex col-mobile gap-md">
                             <img src="@(item.ProjectDetailThumbnail?.Url() ?? "~/images/image-21-min 1.jpg")" alt="@item.Name" />
                             <div class="flex col">
                                 <h2 class="quinary-heading clr-primary">@item.Name</h2>
                                 <p class="text-xs clr-gray mt-2xs"><i class="fa-regular fa-calendar-days mr-2xs"></i>@item.ProjectDetailDate.ToString("MMMM d, yyyy", System.Globalization.CultureInfo.InvariantCulture)</p>
                                 <p class="text-xs mt-xs">@item.ProjectDetailExcerpt</p>
-                                <a class="text-xs text-semi-bold effect-secondary mt-auto" href="@item.Url()">Read more <i class="fa-solid fa-arrow-right fa-sm clr-secondary ml-2xs"></i></a>
+                                <a class="text-xs text-semi-bold effect-secondary mt-auto" href="@item.Url()">Read more <i class="fa-solid fa-arrow-right fa-sm clr-secondary ml-2xs" aria-hidden="true"></i></a>
                             </div>
                         </li>
                     }
@@ -35,7 +35,8 @@
                 <p>No Projects Available</p>
             }
         </div>
-        <div class="divider-vertical"></div>
+        <div class="divider-vertical hidden-mobile-tablet"></div>
+        <div class="divider-horizontal hidden-desktop"></div>
         <aside class="sidebar flex-5">
             @Html.GetBlockListHtml(content.ProjectAsides)
         </aside>

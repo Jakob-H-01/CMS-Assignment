@@ -9,16 +9,16 @@
     var content = (ContentModels.AboutSection)Model.Content;
 }
 
-<section class="flex gap-lg py-xl">
-    <div class="flex col gap-xs">
+<section class="flex col-mobile-tablet gap-lg py-xl">
+    <div class="flex col gap-xs mi-auto">
         @if (content.AboutImage != null)
         {
-            <img src="@content.AboutImage.Url()" alt="@content.AboutName" />
+            <img class="w-100" src="@content.AboutImage.Url()" alt="@content.AboutName" />
         }
-        <p class="text-sm italic clr-primary">@content.AboutName - @content.AboutRole at @siteName</p>
+        <p class="text-sm italic clr-primary center-text-mobile">@content.AboutName - @content.AboutRole at @siteName</p>
     </div>
     <div class="flex-1 flex col gap-sm text-xs">
-        <q class="italic text-lg mb-sm">@content.AboutQuote</q>
+        <q class="italic text-lg mb-sm center-text-mobile">@content.AboutQuote</q>
         @Html.Raw(content.AboutText)
     </div>
 </section>

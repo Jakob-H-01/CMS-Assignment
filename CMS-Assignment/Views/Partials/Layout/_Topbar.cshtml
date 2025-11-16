@@ -9,11 +9,11 @@
 
 <div class="full-width bgc-primary clr-light">
     <div class="flex align-center space-between">
-        <p>@contactAddress</p>
+        <address class="text-xs">@contactAddress</address>
 
         @if (siteSettings?.PlatformList != null)
         {
-            <ul class="flex align-center">
+            <ul class="flex align-center" aria-label="Social media">
                 @foreach (var item in siteSettings.PlatformList)
                 {
                     if (item.Content is SocialMediaItem mediaItem)
@@ -21,15 +21,15 @@
                         switch (mediaItem.PlatformName!.ToLower())
                         {
                             case "facebook":
-                                <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank"><i class="fa-brands fa-facebook-f clr-light"></i></a></li>
+                                <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank" rel="noopener noreferrer" aria-label="Visit us on Facebook (opens in a new tab)"><i class="fa-brands fa-facebook-f clr-light"></i></a></li>
                                 break;
 
                             case "x":
-                                <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank"><i class="fa-brands fa-twitter clr-light"></i></a></li>
+                                <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank" rel="noopener noreferrer" aria-label="Visit us on Twitter (opens in a new tab)"><i class="fa-brands fa-twitter clr-light"></i></a></li>
                                 break;
 
                             case "linkedin":
-                                <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank"><i class="fa-brands fa-linkedin-in clr-light"></i></a></li>
+                                <li class="p-sm icon-border"><a href="@mediaItem.PlatformAccountUrl" target="_blank" rel="noopener noreferrer" aria-label="Visit us on Linkedin (opens in a new tab)"><i class="fa-brands fa-linkedin-in clr-light"></i></a></li>
                                 break;
                         }
                     }

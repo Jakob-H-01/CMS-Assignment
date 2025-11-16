@@ -25,7 +25,7 @@
                 @foreach (var item in items)
                 {
                     <li class="bgc-lightest border text-left">
-                        <a href="@item.Url()">
+                        <a href="@item.Url()" aria-label="Read more about @item.Name">
                             <h4 class="quinary-heading py-sm-md px-md">@item.Name</h4>
                             <img class="w-100" src="@(item.ServiceDetailThumbnail?.Url() ?? "~/images/image-21-min 1.jpg")" alt="@item.Name" />
                             <p class="text-xs py-sm-md px-md">@item.ServiceDetailExcerpt</p>
@@ -49,7 +49,7 @@
                 @foreach (var item in items)
                 {
                     <li class="bgc-lightest border text-left">
-                        <a href="@item.Url()">
+                        <a href="@item.Url()" aria-label="Read more about @item.Name">
                             <h3 class="quinary-heading py-sm-md px-md">@item.Name</h3>
                             <img class="w-100" src="@(item.ServiceDetailThumbnail?.Url() ?? "~/images/image-21-min 1.jpg")" alt="@item.Name" />
                             <p class="text-xs py-sm-md px-md">@item.ServiceDetailExcerpt</p>

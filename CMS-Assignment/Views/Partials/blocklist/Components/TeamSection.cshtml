@@ -11,7 +11,7 @@
     
     @if (teamList != null)
     {
-        <ul class="flex space-between gap-md mt-md">
+        <ul class="flex col-mobile space-between gap-md mt-md w-75-mobile mi-auto-mobile">
             @for (var i = 0; i < 3; i++)
             {
                 var member = teamList[i];
@@ -20,7 +20,7 @@
             }
         </ul>
         
-        <ul class="flex space-between gap-md mt-lg">
+        <ul class="flex col-mobile space-between gap-md mt-lg w-75-mobile mi-auto-mobile">
             @for (var i = 3; i < teamList.Count; i++)
             {
                 var member = teamList[i];

@@ -9,12 +9,12 @@
 
 @{ var selection = Model.Ancestors().ToArray(); }
 
-<section class="bgc-light py-lg center-text" style="background-image: url('/images/rectangle-left.svg'), url('/images/rectangle-right.svg'); background-repeat: no-repeat; background-position: left bottom, top right;">
+<section class="content-grid bgc-light py-lg center-text" style="background-image: url('/images/rectangle-left.svg'), url('/images/rectangle-right.svg'); background-repeat: no-repeat; background-position: left bottom, top right;">
     <h1 class="secondary-heading">@Model.PageTitle</h1>
     
     @if (selection?.Length > 0)
     {
-        <ul class="flex center gap-xs mt-xs">
+        <ul class="flex flex-wrap center gap-xs mt-xs">
             @foreach (var item in selection.OrderBy(x => x.Level))
             {
                 <li class="text-xs flex align-center gap-xs">

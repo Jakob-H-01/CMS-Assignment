@@ -20,7 +20,7 @@
     var selection = Model.Root().Children().Where(x => x.IsVisible(PublishedValueFallback)).ToArray();
 }
 
-<div class="relative flex align-center py-sm">
+<div class="relative-desktop flex align-center py-sm">
     @if (siteLogo != null)
     {
         <a href="/"><img src="@siteLogo.Url()" alt="@siteName" /></a>
@@ -29,18 +29,24 @@
     {
         <a href="/">@siteName</a>
     }
-    <nav class="absolute absolute-center-x">
+    <nav id="main-navigation" class="absolute absolute-center-x hidden-mobile-tablet" aria-label="Main navigation">
+        <button id="close-mobile-menu" class="close-mobile-menu-btn hidden-desktop" aria-label="Close menu" aria-controls="main-navigation" aria-expanded="false">
+            <i class="fa-solid fa-xmark fa-2xl clr-primary"></i>
+        </button>
         @if (selection?.Length > 0)
         {
-            <ul class="flex align-center gap-lg">
+            <ul class="flex col-to-row align-center gap-lg">
                 @foreach (var item in selection)
                 {
                     <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
-                        <a class="clr-primary text-bold effect-secondary" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                        <a class="clr-primary text-bold effect-secondary" href="@item.Url(PublishedUrlProvider)" @(item.IsAncestorOrSelf(Model) ? "aria-current=\"page\"" : "")>@item.Name</a>
                     </li>
                 }
             </ul>
         }
     </nav>
-    <button class="ml-auto"><i class="fa-solid fa-magnifying-glass clr-primary effect-secondary"></i></button>
+    <button class="ml-auto hidden-mobile-tablet" aria-label="Search"><i class="fa-solid fa-magnifying-glass clr-primary effect-secondary"></i></button>
+    <button id="open-mobile-menu" class="ml-auto hidden-desktop" aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false">
+        <i class="fa-solid fa-bars fa-2xl clr-primary"></i>
+    </button>
 </div>

@@ -6,12 +6,12 @@
 }
 
 <section class="py-lg">
-    <ul class="flex space-between align-center">
+    <ul class="flex flex-wrap align-center justify-center gap-lg">
         @if (companies != null)
         {
             foreach (var company in companies)
             {
-                <li><partial name="Partials/Blocklist/Components/CompanyItem" model="company"></li>
+                <li class="flex-1-desktop"><partial name="Partials/Blocklist/Components/CompanyItem" model="company"></li>
             }
         }
     </ul>
