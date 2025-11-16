@@ -24,16 +24,16 @@
             <h2 class="secondary-heading center-text-mobile w-75-mobile mi-auto-mobile">@content.ContactTitle</h2>
             <ul class="flex col gap-md mi-auto-mobile">
                 <li class="relative pl-sm-md flex col gap-xs">
-                    <h3 class="clr-primary text-xs text-semi-bold flex align-center gap-xs"><i class="fa-solid fa-location-dot fa-lg clr-secondary absolute left"></i>Office location</h3>
-                    <p class="text-xs">@contactAddress</p>
+                    <h3 class="clr-primary text-xs text-semi-bold flex align-center gap-xs"><i class="fa-solid fa-location-dot fa-lg clr-secondary absolute left" aria-hidden="true"></i>Office location</h3>
+                    <address class="text-xs">@contactAddress</address>
                 </li>
                 <li class="relative pl-sm-md flex col gap-xs">
-                    <h3 class="clr-primary text-xs text-semi-bold flex align-center gap-xs"><i class="fa-solid fa-phone-flip fa-lg clr-secondary absolute left"></i>Phone number</h3>
-                    <p class="text-xs">@contactPhone</p>
+                    <h3 class="clr-primary text-xs text-semi-bold flex align-center gap-xs"><i class="fa-solid fa-phone-flip fa-lg clr-secondary absolute left" aria-hidden="true"></i>Phone number</h3>
+                    <p class="text-xs"><a href="tel:@contactPhone">@contactPhone</a></p>
                 </li>
                 <li class="relative pl-sm-md flex col gap-xs">
-                    <h3 class="clr-primary text-xs text-semi-bold flex align-center gap-xs"><i class="fa-solid fa-envelope fa-lg clr-secondary absolute left"></i>E-mail address</h3>
-                    <p class="text-xs">@contactEmail</p>
+                    <h3 class="clr-primary text-xs text-semi-bold flex align-center gap-xs"><i class="fa-solid fa-envelope fa-lg clr-secondary absolute left" aria-hidden="true"></i>E-mail address</h3>
+                    <p class="text-xs"><a href="mailto:@contactEmail">@contactEmail</a></p>
                 </li>
             </ul>
         </div>

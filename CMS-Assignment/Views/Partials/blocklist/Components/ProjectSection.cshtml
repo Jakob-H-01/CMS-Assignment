@@ -24,7 +24,7 @@
                                 <h2 class="quinary-heading clr-primary">@item.Name</h2>
                                 <p class="text-xs clr-gray mt-2xs"><i class="fa-regular fa-calendar-days mr-2xs"></i>@item.ProjectDetailDate.ToString("MMMM d, yyyy", System.Globalization.CultureInfo.InvariantCulture)</p>
                                 <p class="text-xs mt-xs">@item.ProjectDetailExcerpt</p>
-                                <a class="text-xs text-semi-bold effect-secondary mt-auto" href="@item.Url()">Read more <i class="fa-solid fa-arrow-right fa-sm clr-secondary ml-2xs"></i></a>
+                                <a class="text-xs text-semi-bold effect-secondary mt-auto" href="@item.Url()">Read more <i class="fa-solid fa-arrow-right fa-sm clr-secondary ml-2xs" aria-hidden="true"></i></a>
                             </div>
                         </li>
                     }

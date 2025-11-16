@@ -29,7 +29,7 @@
     {
         <a href="/">@siteName</a>
     }
-    <nav id="main-navigation" class="absolute absolute-center-x hidden-mobile-tablet">
+    <nav id="main-navigation" class="absolute absolute-center-x hidden-mobile-tablet" aria-label="Main navigation">
         <button id="close-mobile-menu" class="close-mobile-menu-btn hidden-desktop" aria-label="Close menu" aria-controls="main-navigation" aria-expanded="false">
             <i class="fa-solid fa-xmark fa-2xl clr-primary"></i>
         </button>
@@ -39,13 +39,13 @@
                 @foreach (var item in selection)
                 {
                     <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
-                        <a class="clr-primary text-bold effect-secondary" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                        <a class="clr-primary text-bold effect-secondary" href="@item.Url(PublishedUrlProvider)" @(item.IsAncestorOrSelf(Model) ? "aria-current=\"page\"" : "")>@item.Name</a>
                     </li>
                 }
             </ul>
         }
     </nav>
-    <button class="ml-auto hidden-mobile-tablet"><i class="fa-solid fa-magnifying-glass clr-primary effect-secondary"></i></button>
+    <button class="ml-auto hidden-mobile-tablet" aria-label="Search"><i class="fa-solid fa-magnifying-glass clr-primary effect-secondary"></i></button>
     <button id="open-mobile-menu" class="ml-auto hidden-desktop" aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false">
         <i class="fa-solid fa-bars fa-2xl clr-primary"></i>
     </button>
